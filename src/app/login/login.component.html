@@ -1,0 +1,41 @@
+<div id="container">
+  <div [formGroup]="frmFormulario" id="form">
+    <input
+      formControlName="identificationNumber"
+      placeholder="Numero de Identificacion"
+    />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('identificationNumber')?.hasError('required') &&
+        frmFormulario.get('identificationNumber')?.touched
+      "
+    >
+      * La Numero de Identificacion es requerido
+    </div>
+    <input formControlName="password" placeholder="password" type="password" />
+  </div>
+  <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('password')?.hasError('minlength') &&
+        frmFormulario.get('password')?.touched
+      "
+    >
+      * El password debe contener como minimo 8 caracteres
+    </div>
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('password')?.hasError('pattern') &&
+        frmFormulario.get('password')?.touched
+      "
+    >
+      <span>* Al menos 8 caracteres de longitud</span>
+      <span>* Al menos una letra mayúscula</span>
+      <span> * Al menos una letra minúscula</span>
+      <span> * Al menos un número</span>
+      <span> * Al menos un carácter especial</span>
+    </div>
+  <button [disabled]="frmFormulario.invalid" (click)="sendData()">Iniciar Sesion</button>
+</div>

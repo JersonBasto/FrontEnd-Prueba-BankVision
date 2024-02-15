@@ -1,0 +1,39 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 20px;
+    margin: 10% auto auto auto;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    button{
+        width: 100px;
+        height: 30px;
+        margin: auto;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+}
+#form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    input{
+        width: 200px;
+        height: 30px;
+        margin: auto;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+}
+.altoMensaje{
+    color: red;
+    width: 200px;
+    font-size: 12px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}

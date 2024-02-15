@@ -1,0 +1,121 @@
+<div id="container">
+  <div [formGroup]="frmFormulario" id="form">
+    <input formControlName="name" placeholder="Nombres" type="text" />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('name')?.hasError('required') &&
+        frmFormulario.get('name')?.touched
+      "
+    >
+      * El Nombre es requerido
+    </div>
+    <input formControlName="lastName" placeholder="Apellidos" type="text" />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('lastName')?.hasError('required') &&
+        frmFormulario.get('lastName')?.touched
+      "
+    >
+      * El Apellido es requerido
+    </div>
+    <input formControlName="phone" placeholder="Celular" type="text" />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('phone')?.hasError('required') &&
+        frmFormulario.get('phone')?.touched
+      "
+    >
+      * El Telefono es requerido
+    </div>
+    <input
+      formControlName="birthDate"
+      placeholder="Fecha de Nacimiento"
+      type="date"
+    />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('birthDate')?.hasError('required') &&
+        frmFormulario.get('birthDate')?.touched
+      "
+    >
+      * La fecha de Nacimiento es requerida
+    </div>
+    <input
+      formControlName="identificationNumber"
+      placeholder="Numero de Identificacion"
+      type="text"
+    />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('identificationNumber')?.hasError('required') &&
+        frmFormulario.get('identificationNumber')?.touched
+      "
+    >
+      * La Numero de Identificacion es requerido
+    </div>
+    <select formControlName="idtype">
+      <option *ngFor="let typeId of typesId" [value]="typeId">
+        {{ typeId }}
+      </option>
+    </select>
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('idtype')?.hasError('required') &&
+        frmFormulario.get('idtype')?.touched
+      "
+    >
+      * El Tipo de Identificacion es requerido
+    </div>
+    <input formControlName="email" placeholder="Email" type="email" />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('email')?.hasError('required') &&
+        frmFormulario.get('email')?.touched
+      "
+    >
+      * El Email es requerido
+    </div>
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('email')?.hasError('email') &&
+        frmFormulario.get('email')?.touched
+      "
+    >
+      * Ingrese un Email valido
+    </div>
+    <input formControlName="password" placeholder="Password" type="password" />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('password')?.hasError('minlength') &&
+        frmFormulario.get('password')?.touched
+      "
+    >
+      * El password debe contener como minimo 8 caracteres
+    </div>
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('password')?.hasError('pattern') &&
+        frmFormulario.get('password')?.touched
+      "
+    >
+      <span>* Al menos 8 caracteres de longitud</span>
+      <span>* Al menos una letra mayúscula</span>
+      <span> * Al menos una letra minúscula</span>
+      <span> * Al menos un número</span>
+      <span> * Al menos un carácter especial</span>
+    </div>
+  </div>
+  <button [disabled]="frmFormulario.invalid" (click)="sendData()">
+    Mirar Info
+  </button>
+</div>
