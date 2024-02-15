@@ -9,6 +9,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     LoginComponent,
     LadingPageComponent,
     RegisterUserComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
