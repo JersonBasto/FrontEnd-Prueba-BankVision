@@ -1,1 +1,24 @@
-<p>lading-page works!</p>
+<div id="container">
+  <div [formGroup]="frmFormulario" id="form">
+    <label for="name"> Nombres </label>
+    <input type="text" formControlName="name" />
+    <label for="lastName"> Apellidos </label>
+    <input type="text" formControlName="lastName" />
+    <label for="phone"> Telefono </label>
+    <input type="text" formControlName="phone" />
+    <label for="birthDate"> Fecha de Nacimiento </label>
+    <input type="text" formControlName="birthDate" [disabled]="true" />
+    <label for="age"> Edad </label>
+    <input type="text" formControlName="age" />
+    <label for="idtype"> Tipo de identificacion </label>
+    <select formControlName="idtype">
+      <option *ngFor="let typeId of typesId" [value]="typeId">
+        {{ typeId }}
+      </option>
+    </select>
+    <label for="identificationNumber"> Numero de identificacion </label>
+    <input type="text" formControlName="identificationNumber" />
+    <label for="email"> Email </label>
+    <input type="text" formControlName="email" />
+  </div>
+</div>

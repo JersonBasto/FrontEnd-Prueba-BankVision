@@ -39,24 +39,6 @@ export class RegisterUserComponent {
   }
 
   sendData() {
-    this.userService.registerUser(this.frmFormulario.value).subscribe({
-      next: (data) => {
-        console.log(data);
-        Swal.fire({
-          title: 'Usuario Creado',
-          text:
-            'Se ha creado el usuario ' + this.frmFormulario.get('name')?.value,
-          icon: 'success',
-        });
-      },
-      error: (error) =>
-        Swal.fire({
-          title: 'Ha ocurrido un error',
-          text: error.error,
-          icon: 'error',
-        }),
-      complete: () => console.log('Complete'),
-    });
-    console.log(this.frmFormulario.value);
+    this.userService.registerUser(this.frmFormulario.value)
   }
 }

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../../data/services/user-service/user-service.service';
-import Swal from 'sweetalert2';
-import { EncriptService } from '../../data/services/encript-service/encript.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +10,10 @@ import { EncriptService } from '../../data/services/encript-service/encript.serv
 })
 export class LoginComponent {
   frmFormulario: FormGroup;
+  imageUrl: string = './assets/imagen.png';
   constructor(
     private readonly userServiceService: UserServiceService,
-    private readonly encriptService: EncriptService
+    private readonly router: Router
   ) {
     this.frmFormulario = new FormGroup({
       identificationNumber: new FormControl(null, [Validators.required]),
@@ -27,26 +27,6 @@ export class LoginComponent {
   }
 
   sendData() {
-    this.userServiceService.encriptTest(this.frmFormulario.value).subscribe({
-      next: (data) => console.log(data),
-    });
-    this.userServiceService.loginUser(this.frmFormulario.value).subscribe({
-      next: (data) => {
-        Swal.fire({
-          title: 'Bienvenido',
-          text: 'Has iniciado sesion',
-          icon: 'success',
-        });
-        console.log(data);
-      },
-      error: (err) => {
-        Swal.fire({
-          title: 'Error',
-          text: err.error,
-          icon: 'error',
-        });
-      },
-      complete: () => console.log('Complete'),
-    });
+    this.userServiceService.loginUser(this.frmFormulario.value);
   }
 }
